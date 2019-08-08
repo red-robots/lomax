@@ -19,10 +19,11 @@ get_header(); ?>
 
 		<?php
 			/* Start the Loop */
-			$wp_query = new WP_Query(array('post_status'=>'private','pagename'=>'homepage'));
-			if ( have_posts() ) : the_post(); 
-				get_template_part( 'template-parts/content', 'index' );
-			endif; ?>
+			// $wp_query = new WP_Query(array('post_status'=>'private','pagename'=>'homepage'));
+			// if ( have_posts() ) : the_post(); 
+			// 	get_template_part( 'template-parts/content', 'index' );
+			// endif; 
+			?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
