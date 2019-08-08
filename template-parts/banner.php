@@ -1,12 +1,13 @@
 <?php
 if ( is_front_page() || is_home() ) { 
 	$slides = get_field('slides'); 
-	$slide_class = '';
+	$slide_class = ' flexslider';
 	if($slides) {
-		$count = count($slides);
-		if($count>1) {
-			$slide_class = ' flexslider';
-		}
+		// $count = count($slides);
+		// print_r($count);
+		// if($count>1) {
+		// 	$slide_class = ' flexslider';
+		// }
 	}
 	?>
 	<?php if ($slides) { ?>
