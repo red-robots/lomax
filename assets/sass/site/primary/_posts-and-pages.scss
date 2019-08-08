@@ -1,0 +1,20 @@
+.home-sliders {
+	width: 100%;
+	overflow: hidden;
+	.slideshow,.flex-viewport {
+		width: 100%;
+	}
+	.flexslider {
+		border: none;
+		margin: 0 0;
+	}
+	ul,li {
+		margin: 0 0;
+		padding: 0 0;
+		list-style: none;
+	}
+	.slide-item img {
+		width: 100%;
+		height: auto;
+	}
+}
