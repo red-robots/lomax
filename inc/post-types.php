@@ -6,6 +6,14 @@ add_action('init', 'js_custom_init', 1);
 function js_custom_init() {
     $post_types = array(
         array(
+            'post_type' => 'portfolio',
+            'menu_name' => 'Portfolio',
+            'plural'    => 'Portfolio',
+            'single'    => 'Portfolio',
+            'menu_icon' => 'dashicons-category',
+            'supports'  => array('title','editor','thumbnail')
+        ),
+        array(
             'post_type' => 'locations',
             'menu_name' => 'Locations',
             'plural'    => 'Locations',
