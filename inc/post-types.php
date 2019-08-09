@@ -13,6 +13,14 @@ function js_custom_init() {
             'menu_icon' => 'dashicons-location',
             'supports'  => array('title','editor','thumbnail')
         ),
+        array(
+            'post_type' => 'testimonials',
+            'menu_name' => 'Testimonials',
+            'plural'    => 'Testimonials',
+            'single'    => 'Testimonial',
+            'menu_icon' => 'dashicons-format-quote',
+            'supports'  => array('title','editor')
+        ),
     );
     
     if($post_types) {
