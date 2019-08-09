@@ -15,21 +15,19 @@ div,h1,h2,h3,h4,h5,h6,p,li,a,span,strong {
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 }
+a {
+	transition: all ease-out .3s;
+}
 .clear:before, .clear:after { content: " "; display: table; }
 .clear { *zoom: 1; }
 .clear {clear: both;}
+.text-center {text-align:center;}
 .wrapper {
+	max-width: 1200px;
 	width: 100%;
-	margin: 0px auto;
-	padding: 20px;
-	
-	@media screen and (min-width: $tabwidth) {
-		width: 100%;
-	}
-	@media screen and (min-width: $deskwidth) {
-		width: 1200px;
-		padding: 0px;
-	}
+	margin: 0 auto;
+	padding-left: 20px;
+	padding-right: 20px;
 }
 
 .content-area {
@@ -49,40 +47,42 @@ div,h1,h2,h3,h4,h5,h6,p,li,a,span,strong {
 .widget-area {
 	width: 100%;
 	margin: 0px auto;
-	
 	@media screen and (min-width: $tabwidth) {
 		width: 26%;
 		float: right;
 		margin: 0;
 	}
-	@media screen and (min-width: $deskwidth) {
-		/*width: 1200px;*/
+}
+.logo a {
+	display: inline-block;
+	float: left;
+	position: relative;
+	@include tab {
+		padding: 10px 0;
+	}
+	// img {
+	// 	width: 100%;
+	// 	height: auto;
+	// 	float: left;
+	// }
+	img {
+		@include tab {
+			width: auto;
+			height: 54px;
+			float: left;
+		}
 	}
 }
-
-/* Logo */
-.logo , h1.logo {
-	width: 300px;
-	margin: 10px auto;
-
-	@media screen and (min-width: $tabwidth) {
-		width: 300px;
+.site-header {
+	position: relative;
+	z-index: 200;
+	.logo {
+		width: 30%;
 		float: left;
-		margin: 0;
 	}
-	@media screen and (min-width: $deskwidth) {
-		/*width: 1200px;*/
-	}
-}
-.logo a, h1.logo a {
-	width: 300px;
-	display: block;
-
-	@media screen and (min-width: $tabwidth) {
-		width: 300px;
-	}
-	@media screen and (min-width: $deskwidth) {
-		/*width: 1200px;*/
+	.main-navigation {
+		width: 70%;
+		float: right;
 	}
 }
 .site-footer {

@@ -28,8 +28,7 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'acstarter' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
-		<div class="wrapper">
-			
+		<div class="wrapper clear">
 			<?php if( get_custom_logo() ) { ?>
 	            <div class="logo">
 	            	<?php the_custom_logo(); ?>
@@ -40,15 +39,13 @@
 	            </h1>
 	        <?php } ?>
 
-
-
 			<nav id="site-navigation" class="main-navigation" role="navigation">
 				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'MENU', 'acstarter' ); ?></button>
-				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
+				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu', 'container_class'=>'menuwrap' ) ); ?>
 			</nav><!-- #site-navigation -->
 	</div><!-- wrapper -->
 	</header><!-- #masthead -->
 
-	<?php //get_template_part('template-parts/banner'); ?>
+	<?php get_template_part('template-parts/banner'); ?>
 
 	<div id="content" class="site-content clear">

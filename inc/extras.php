@@ -43,6 +43,11 @@ if( function_exists('acf_add_options_page') ) {
     acf_add_options_page();
 }
 
+/* Fixed Gravity Form Conflict Js */
+add_filter("gform_init_scripts_footer", "init_scripts");
+function init_scripts() {
+    return true;
+}
 
 function add_query_vars_filter( $vars ) {
   $vars[] = "pg";

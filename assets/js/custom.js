@@ -7,28 +7,6 @@
 
 jQuery(document).ready(function ($) {
 	
-	/*
-	*
-	*	Current Page Active
-	*
-	------------------------------------*/
-	$("[href]").each(function() {
-    if (this.href == window.location.href) {
-        $(this).addClass("active");
-        }
-	});
-	/*
-        FAQ dropdowns
-	__________________________________________
-	*/
-	$('.question').click(function() {
-	 
-	    $(this).next('.answer').slideToggle(500);
-	    $(this).toggleClass('close');
-	    $(this).find('.plus-minus-toggle').toggleClass('collapsed');
-	    $(this).parent().toggleClass('active');
-	 
-	});
 
 	/*
 	*
@@ -65,55 +43,15 @@ jQuery(document).ready(function ($) {
 	
 	/*
 	*
-	*	Isotope with Images Loaded
-	*
-	------------------------------------*/
-	var $container = $('#container').imagesLoaded( function() {
-  	$container.isotope({
-    // options
-	 itemSelector: '.item',
-		  masonry: {
-			gutter: 15
-			}
- 		 });
-	});
-
-	/*
-	*
-	*	Smooth Scroll to Anchor
-	*
-	------------------------------------*/
-	 $('a').click(function(){
-	    $('html, body').animate({
-	        scrollTop: $('[name="' + $.attr(this, 'href').substr(1) + '"]').offset().top
-	    }, 500);
-	    return false;
-	});
-
-	/*
-	*
-	*	Nice Page Scroll
-	*
-	------------------------------------*/
-	$(function(){	
-		$("html").niceScroll();
-	});
-	
-	
-	/*
-	*
-	*	Equal Heights Divs
-	*
-	------------------------------------*/
-	$('.js-blocks').matchHeight();
-
-	/*
-	*
 	*	Wow Animation
 	*
 	------------------------------------*/
 	new WOW().init();
 
+	$(document).on("click","#locationlist a.name",function(e){
+		e.preventDefault();
+		$(this).parents('li').toggleClass('open');
+	});
 
 	$(document).on("click","#toggleMenu",function(){
 		$(this).toggleClass('open');
