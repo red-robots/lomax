@@ -55,7 +55,25 @@ jQuery(document).ready(function ($) {
 	});
 
 	$(document).on("click",".contact-section li.gfield",function(e){
-		$(this).find("label").addClass('hide');
+		if( $(this).find('span.name_first').length ) {
+			return false;
+		} else {
+			$(this).find("label").addClass('hide');
+		}
+	});
+
+	$(document).on("click",".contact-section span.name_first, .contact-section span.name_last",function(e){
+		$(this).find('label').addClass('hide');
+	});
+
+	$(document).on("blur focusout",'.contact-section span.name_first, .contact-section span.name_last',function(e){
+		var parent = $(this);
+		var str = $(this).find('input').val();
+			str = StrtoSlug(str);
+			if(str=='') {
+				parent.find('label').removeClass('hide');
+				$(this).val("");
+			}
 	});
 
 	$(document).on("blur focusout",'.contact-section input[type="text"],.contact-section input[type="email"],.contact-section textarea',function(e){
@@ -63,6 +81,7 @@ jQuery(document).ready(function ($) {
 		var div = parent.find('.ginput_container');
 		var str = $(this).val();
 			str = StrtoSlug(str);
+
 		if( div.hasClass('ginput_container_phone') ) {
 			if( str=='(___)___-____' ) {
 				parent.find('label').removeClass('hide');
@@ -73,10 +92,17 @@ jQuery(document).ready(function ($) {
 				$(this).val("");
 			}
 		} else {
-			if(str=='') {
-				parent.find('label').removeClass('hide');
-				$(this).val("");
+
+			if( parent.find('span.name_first').length ) {
+				
+
+			} else {
+				if(str=='') {
+					parent.find('label').removeClass('hide');
+					$(this).val("");
+				}
 			}
+			
 		}
 	});
 
