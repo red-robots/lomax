@@ -1890,7 +1890,9 @@ a,input[type="submit"],button{-webkit-transition:all ease-out .3s;transition:all
 .contact-section .gform_wrapper .top_label div.ginput_container{margin-top:0}
 .contact-section .gform_wrapper input[type="text"],.contact-section .gform_wrapper input[type="email"],.contact-section .gform_wrapper textarea{border-radius:0;border:1px solid #a9a8a8;box-shadow:none;-webkit-appearance:none;font-size:16px}
 .contact-section .gform_wrapper input[type="text"]:focus,.contact-section .gform_wrapper input[type="email"]:focus,.contact-section .gform_wrapper textarea:focus{outline:0;border:1px solid #333;box-shadow:0 0 10px -4px rgba(0,0,0,0.75)}
-.contact-section .gform_wrapper input[type="text"],.contact-section .gform_wrapper input[type="email"]{height:35px;line-height:35px}
+.contact-section .gform_wrapper textarea.large{height:150px}
+@media(min-width:600px){.contact-section .gform_wrapper textarea.large{height:120px}
+}.contact-section .gform_wrapper input[type="text"],.contact-section .gform_wrapper input[type="email"]{height:35px;line-height:35px}
 .contact-section .gform_wrapper .gform_footer{padding:0;margin:0}
 @media(min-width:600px){.contact-section .gform_wrapper .gform_footer{padding:0 10px}
 }.contact-section .gform_wrapper .gform_footer input[type="submit"]{-webkit-appearance:none;box-shadow:none;border:0;margin:0;background:#fb331d;color:#FFF;border-radius:0;display:block;width:100%;text-align:center;text-shadow:none;text-transform:uppercase;font-size:16px;padding:8px 10px}
