@@ -39,7 +39,7 @@ get_header(); ?>
 							<address class="details">
 								<?php echo $address ?>
 								<?php if ($phone) { ?>
-								<a href="tel:<?php echo format_phone_number($phone); ?>" class="phone"><?php echo $phone ?></a>	
+								<div><a href="tel:<?php echo format_phone_number($phone); ?>" class="phone"><?php echo $phone ?></a></div>
 								<?php } ?>
 							</address>
 						</li>
@@ -52,6 +52,20 @@ get_header(); ?>
 			</div>
 		</div>
 	</div>
+
+	<?php get_template_part('template-parts/content','testimonials'); ?>
+
+	<?php if ( $partners = get_field('partners','option') ) { ?>
+	<div class="partners-section wrapper">
+		<div class="partners-section">
+			<?php foreach ($partners as $p) { ?>
+			<div class="partner">
+				<img src="<?php echo $p['url']; ?>" alt="<?php echo $p['title']; ?>">
+			</div>	
+			<?php } ?>
+		</div>	
+	</div><!-- wrapper -->
+	<?php } ?>
 
 </div><!-- #primary -->
 <?php

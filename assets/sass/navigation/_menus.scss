@@ -1,15 +1,46 @@
 .main-navigation {
-	
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	border-bottom: 1px solid $red;
+	@include tab {
+		width: 70%;
+		float: right;
+		position: relative;
+		border-bottom: none;
+	}
 	ul {
 		margin: 0 0;
 		padding: 0 0;
 		list-style: none;
 	}
-	.menu {
+	.menuwrap {
+		display: block;
+		float: left;
+		margin-top: 70px;
+		width: 100%;
 		@include tab {
+			width: auto;
+			display: inline-block;
+    		float: right;
+    		margin-top: 0;
+		}
+	}
+	.menu {
+		display: none;
+		background: $red;
+		@include tab {
+			background: transparent;
 			display: inline-block;
 			float: right;
 		}
+	}
+	&.show .menu {
+		// display: block;
+		// @include tab {
+		// 	display: inline-block;
+		// }
 	}
 	.menu a {
 		display: block;
@@ -22,12 +53,17 @@
 		}
 	}
 	.menu > li > a {
-		color: $red;
+		color: #FFF;
 		text-transform: uppercase;
-		font-size: 16px;
+		font-size: 20px;
 		position: relative;
+		padding: 10px 15px;
+		border-top: 1px solid rgba(255,255,255,.4);
 		@include tab {
+			color: $red;
+			font-size: 16px;
 			padding: 25px 13px;
+			border-top: none;
 		}
 	}
 	.menu > li > a:after {
@@ -44,22 +80,79 @@
 			z-index: -1;
 		}
 	}
+
 	.menu > li:hover > a {
 		color: #FFF;
-		&:after {
-			height: 100%;
+		background: rgba(255,255,255,.3);
+		@include tab {
+			&:after {
+				height: 100%;
+			}
 		}
 	}
 	.menu > li.current_page_item:hover > a,
 	.menu > li.current_page_item > a {
 		color: #FFF;
-		background: $red;
+		background: rgba(255,255,255,.3);
+		@include tab {
+			background: $red;
+		}
 	}
 
 }
 .menu-toggle {
 	display: block;
+	position: absolute;
+	top: 15px;
+	right: 20px;
+	-webkit-appearance: none;
+	box-shadow: none;
+	border: none;
+	font-size: 0;
+	color: transparent;
+	width: 45px;
+	height: 40px;
+	background: transparent;
+	outline: none;
 	@include tab {
 		display: none;
+	}
+	&:hover, &:focus {
+		box-shadow: none;
+		border: none;
+	}
+	span.burger {
+		display: inline-block;
+		width: 100%;
+		height: 3px;
+		background: $red;
+		position: relative;
+		transition: all ease-out .3s;
+		&:before, &:after {
+			content:"";
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			background: $red;
+			left: 0;
+			transition: all ease-out .3s;
+		}
+		&:before {
+			top: -10px;
+		}
+		&:after {
+			top: 10px;
+		}
+	}
+	&.open {
+		span.burger {
+			background: transparent;
+			&:before {
+				transform: translateY(10px) rotate(45deg);
+			}
+			&:after {
+				transform: translateY(-10px) rotate(-45deg);
+			}
+		}
 	}
 }

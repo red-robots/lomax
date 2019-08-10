@@ -108,8 +108,12 @@
 		}
 	}
 	.col.location {
+		width: 100%;
+		margin-bottom: 35px;
 		@include tab {
 			float: left;
+			width: 40%;
+			margin-bottom: 0;
 		}
 		h3 {
 			color: $red;
@@ -124,7 +128,9 @@
 		}
 	}
 	.col.form {
+		width: 100%;
 		@include tab {
+			width: 60%;
 			float: right;
 		}
 	}
@@ -183,8 +189,7 @@
 		margin: 0 0;
 	}
 	a.phone {
-		display: block;
-		width: 100%;
+		display: inline-block;
 		color: $color__text-main;
 		text-decoration: none;
 	}
@@ -203,4 +208,226 @@
 			}
 		}
 	}
+}
+.contact-section .gform_wrapper {
+	.gform_body {
+		margin-left: 0;
+		margin-right: 0;
+		@include tab {
+			margin-left: -10px;
+			margin-right: -10px;
+		}
+	}
+	ul.gform_fields {
+		width: 100%;
+		float: left;
+	}
+	ul li.gfield  {
+		clear: none;
+		position: relative;
+		margin: 0 0 18px!important;
+		@include tab {
+			width: 50%;
+			float: left;
+			padding: 0 10px!important;
+		}
+		&#field_1_5 {
+			width: 100%;
+		}
+		label {
+			position: absolute;
+			top: 7px;
+			left: 20px;
+			font-size: 15px;
+			z-index: 5;
+			color: #9e9e9e;
+			font-weight: 400;
+			text-transform: uppercase;
+			transition: all ease-out .3s;
+			&.hide {
+				font-size: 13px;
+				top: -16px;
+				left: 9px;
+			}
+		}
+	}
+	.top_label div.ginput_container {
+		margin-top: 0;
+	}
+	input[type="text"], input[type="email"], textarea {
+		border-radius: 0px;
+		border: 1px solid #a9a8a8;
+		box-shadow: none;
+		-webkit-appearance: none;
+		font-size: 16px;
+		&:focus {
+			outline: none;
+			border: 1px solid #333;
+			box-shadow: 0px 0px 10px -4px rgba(0,0,0,0.75);
+		}
+	}
+	input[type="text"], input[type="email"] {
+		height: 35px;
+		line-height: 35px;
+	}
+	.gform_footer {
+		padding: 0 0;
+		margin: 0 0;
+		@include tab {
+			padding: 0 10px;
+		}
+	}
+	.gform_footer input[type="submit"] {
+		-webkit-appearance: none;
+		box-shadow: none;
+		border: none;
+		margin: 0 0;
+		background: $red;
+		color: #FFF;
+		border-radius: 0px;
+		display: block;
+		width: 100%;
+		text-align: center;
+		text-shadow: none;
+		text-transform: uppercase;
+		font-size: 16px;
+		padding: 8px 10px;
+		@include tab {
+			margin: 0 0 0 -10px;
+		}
+		&:hover {
+			background: $light_red;
+		}
+	}
+}
+
+.testimonials-section {
+	background: $red;
+	color: #FFF;
+	position: relative;
+	min-height: 200px;
+	overflow: hidden;
+	padding-left: 0;
+	padding-right: 0;
+	.wrapper {
+		@include tab {
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+	}
+	.flex-viewport {
+		max-height: 100%!important;
+	}
+	.wrapper,
+	.innerwrap {
+		position: relative;
+	}
+	.innerwrap {
+		@include flexbox();
+		@include flexbox-wrap(wrap);
+		@include flexbox-direction(row);
+		@include flexbox-align-content(center);
+		@include flexbox-align-items(center);
+		@include flexbox-justify(center);
+	}
+	ul {
+		margin: 0 0;
+		padding: 0 0;
+		list-style: none;
+	}
+	.author {
+		color: #FFF;
+		font-size: 14px;
+		line-height: 1.3;
+		padding: 18px 0 0;
+	}
+	.text {
+		font-size: 18px;
+	}
+	ul.slides {
+		@include flexbox();
+		@include flexbox-align-items(center);
+	}
+	ul.slides .middle {
+		text-align: center;
+		padding: 10% 15%;
+		@include tab {
+			padding: 5% 12%;
+		}
+		p:first-child {
+			margin-top: 0;
+		}
+		p {
+			margin-top: 15px;
+			margin-bottom: 0;
+		}
+	}
+	.flex-control-paging {
+		display: none!important;
+	}
+	.flex-direction-nav a {
+		opacity: 1;
+		color: transparent!important;
+		text-shadow: none;
+		font-size: 1px;
+		width: 35px;
+		height: 35px;
+		background: rgba(255,255,255,.2);
+		&:before,&:after {
+			position: absolute;
+			top: 0;
+			left: 18px;
+			content:"";
+			display: block;
+			width: 1px;
+			height: 14px;
+			background: #FFF;
+			color: transparent!important;
+			text-shadow: none;
+		}
+		&:before {
+			top: 6px;
+			transform: rotate(-42deg);
+		}
+		&:after {
+			top: -3px;
+			transform: translateY(19px) rotate(42deg);
+		}
+		&.flex-prev {
+			transform: rotateY(180deg);
+		}
+	}
+}
+
+.partners-section {
+	@include flexbox();
+	@include flexbox-wrap(wrap);
+	@include flexbox-align-items(center);
+	@include flexbox-justify(center);
+	padding: 2% 30px;
+	.partner {
+		display: inline-block;
+		padding: 10px 20px;
+		width: 50%;
+		text-align: center;
+		@include tab {
+			width: 30%;
+			padding: 10px 20px;
+		}
+		@include mid {
+			padding: 10px 35px;
+		}
+		@include desk {
+			padding: 10px 25px;
+		}
+		img {
+			width: 100%;
+			height: auto;
+			@include desk {
+				width: auto;
+				height: 90px;
+			}
+		}
+	}
+		
 }
