@@ -1880,7 +1880,8 @@ a,input[type="submit"],button{-webkit-transition:all ease-out .3s;transition:all
 .contact-section ul.locations li.open a.name:before{border-left:8px solid #fb331d;-webkit-transform:rotate(90deg);-ms-transform:rotate(90deg);transform:rotate(90deg)}
 .contact-section .gform_wrapper .gform_body{margin-left:0;margin-right:0}
 @media(min-width:600px){.contact-section .gform_wrapper .gform_body{margin-left:-10px;margin-right:-10px}
-}.contact-section .gform_wrapper ul.gform_fields{width:100%;float:left}
+}.contact-section .gform_wrapper .gf_browser_chrome ul.gform_fields li.gfield span.name_first,.contact-section .gform_wrapper .gf_browser_chrome ul.gform_fields li.gfield span.name_last{padding-top:0}
+.contact-section .gform_wrapper ul.gform_fields{width:100%;float:left}
 .contact-section .gform_wrapper ul li.gfield{clear:none;position:relative;margin:0 0 18px !important}
 @media(min-width:600px){.contact-section .gform_wrapper ul li.gfield{width:50%;float:left;padding:0 10px !important}
 }.contact-section .gform_wrapper ul li.gfield#field_1_5{width:100%}
