@@ -218,10 +218,12 @@
 			margin-right: -10px;
 		}
 	}
-	.gf_browser_chrome ul.gform_fields li.gfield span.name_first,
-	.gf_browser_chrome ul.gform_fields li.gfield span.name_last {
+	&.gf_browser_chrome ul.gform_fields li.gfield span.name_first, 
+	&.gf_browser_chrome ul.gform_fields li.gfield span.name_last, 
+	&.gf_browser_chrome ul.gform_fields li.gfield span.name_middle {
 		padding-top: 0;
 	}
+
 	ul.gform_fields {
 		width: 100%;
 		float: left;
