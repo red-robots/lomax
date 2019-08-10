@@ -85,6 +85,7 @@
 		color: #FFF;
 		background: rgba(255,255,255,.3);
 		@include tab {
+			background: transparent;
 			&:after {
 				height: 100%;
 			}
