@@ -177,6 +177,10 @@ jQuery(document).ready(function ($) {
 			$(".basemap").removeClass('invisible');
 			$(".mapinfo").removeClass('active');
 			$(".maphover").removeClass('active');
+			$(".maphover").attr('usemap',''); 
+			var baseMap = $(".basemap");
+			var useMap = baseMap.attr('data-default');
+			baseMap.attr('usemap',useMap); 
 	    }
 	});
 
