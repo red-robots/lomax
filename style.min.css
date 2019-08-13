@@ -1815,9 +1815,15 @@ a,input[type="submit"],button{-webkit-transition:all ease-out .3s;transition:all
 @media(min-width:900px){.site-footer .col.left{width:65%}
 }.site-footer .col.right{width:100%;text-align:center}
 @media(min-width:900px){.site-footer .col.right{text-align:right;width:35%}
-}.site-footer .col.right .wrap{display:block;width:100%;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-flex-direction:row;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+}.site-footer .col.right .wrap{display:block;width:100%;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
 .site-footer .rcol1,.site-footer .rcol2{width:100%;margin:10px 0 0}
-@media(min-width:900px){.site-footer .rcol1,.site-footer .rcol2{width:50%;margin:20px 0 0}
+@media(min-width:900px){.site-footer .rcol1,.site-footer .rcol2{width:50%;margin:0}
+}.site-footer .rcol1.noSocial{width:100%;text-align:center}
+@media(min-width:900px){.site-footer .rcol1.noSocial{text-align:right}
+.site-footer .rcol1.noSocial .enquiry-email{float:right}
+}.site-footer .rcol2.noEmail{width:100%;text-align:center}
+@media(min-width:900px){.site-footer .rcol2.noEmail{text-align:right}
+.site-footer .rcol2.noEmail .social-links{float:right}
 }.site-footer .foot-title{font-size:14px;color:#FFF;text-transform:uppercase;margin-bottom:10px;text-align:center}
 @media(min-width:600px){.site-footer .foot-title{text-align:left}
 }.site-footer .social-links{text-align:center}

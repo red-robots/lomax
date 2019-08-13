@@ -16,10 +16,20 @@ get_header(); ?>
 		<?php  
 
 		$email = get_field('email','option');
+		$socialLinks = array();
 		$social[] = array('linkedin','fab fa-linkedin');
 		$social[] = array('facebook','fab fa-facebook-square');
 		$social[] = array('instagram','fab fa-instagram');
 		$social[] = array('twitter','fab fa-twitter-square');
+		foreach ($social as $s) { 
+			$social_link = get_field( $s[0],'option' );
+			$social_link = preg_replace('/\s+/', '', $social_link);
+			$social_icon = $s[1];
+			if($social_link) {
+				$socialLinks[] = array($social_link,$social_icon);
+			}
+		}
+
 
 		$args = array(
 			'posts_per_page'=> -1,
@@ -99,19 +109,19 @@ get_header(); ?>
 				</div>
 				<?php } ?>
 				
+				<?php if ($socialLinks) { ?>
 				<div class="social-info">
 					<div class="stitle">Follow Us</div>
-					<?php $i=1; foreach ($social as $s) { 
-						$social_link = get_field( $s[0],'option' );
-						$social_icon = $s[1];
-						?>
-						<?php if ($social_link) { ?>
+					<?php  
+					$i=1; foreach ($socialLinks as $s) { 
+						$social_link = $s[0];;
+						$social_icon = $s[1]; ?>
 						<a class="social<?php echo($i==1) ? ' first':'';?>" href="<?php echo $social_link ?>" target="_blank">
 							<span class="icon"><i class="<?php echo $social_icon ?>"></i><span class="sr-only"><?php echo $s[0]; ?></span></span>
-						</a>
-						<?php $i++; } ?>
-					<?php } ?>
+						</a> 
+					<?php $i++; } ?>
 				</div>
+				<?php } ?>
 			</div>
 
 			<div class="rightcol">
