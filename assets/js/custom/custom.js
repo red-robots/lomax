@@ -7,6 +7,7 @@
 
 jQuery(document).ready(function ($) {
 	
+	$('.tooltip').tooltipster();
 
 	/*
 	*
@@ -126,5 +127,57 @@ jQuery(document).ready(function ($) {
 		str = str.toLowerCase();
 		return str;
 	} 
+
+	/* MAPS  */
+	// $(".mapinfo").hover(
+	// 	function(){
+	// 		$(".basemap").addClass('invisible');
+	// 		var mapId = $(this).attr('data-map');
+	// 		if( $(mapId).length ) {
+	// 			$(mapId).addClass('active');
+	// 		}
+	// 	}, function() {
+	// 		$(".basemap").removeClass('invisible');
+	// 		var mapId = $(this).attr('data-map');
+	// 		if( $(mapId).length ) {
+	// 			$(mapId).removeClass('active');
+	// 		}
+	// 	}
+	// );
+
+	$(document).on("click",".mapinfo", function(){
+		var baseMap = $(".basemap");
+		var useMap = baseMap.attr('data-default');
+		baseMap.addClass('invisible');
+		baseMap.attr('usemap','');
+		$(".mapinfo").removeClass('active');
+		$(this).addClass('active');
+		var mapId = $(this).attr('data-map');
+		if( $(mapId).length ) {
+			$(".maphover").removeClass('active');
+			$(".maphover").attr('usemap',''); 
+			$(mapId).addClass('active');
+			$(mapId).attr('usemap',useMap);
+		}
+	});
+
+	/* Clicking Map Area */
+	$('#themaps area').each(function(){
+		var mapName = $(this).attr('data-mapname');
+		$(this).addClass('tooltip');
+		$(this).attr('alt',mapName);
+		$(this).attr('title',mapName);
+		$(this).tooltipster();
+	});
+
+	/* Remove Active Location */
+	$(document).on('click', function (e) {
+		var locationsDiv = "#locations";
+	    if ($(e.target).closest(locationsDiv).length === 0) {
+			$(".basemap").removeClass('invisible');
+			$(".mapinfo").removeClass('active');
+			$(".maphover").removeClass('active');
+	    }
+	});
 
 });// END #####################################    END

@@ -247,15 +247,18 @@
 		label {
 			position: absolute;
 			top: 7px;
-			left: 20px;
+			left: 8px;
 			font-size: 15px;
 			z-index: 5;
 			color: #9e9e9e;
 			font-weight: 400;
 			text-transform: uppercase;
 			transition: all ease-out .3s;
+			@include tab {
+				left: 20px;
+			}
 			&.hide {
-				font-size: 13px;
+				font-size: 12px;
 				top: -16px;
 				left: 9px;
 			}
@@ -459,4 +462,210 @@
 		}
 	}
 		
+}
+
+body.subpage .site-content {
+	background: -moz-linear-gradient(top, rgba(211,211,211,0.65) 0%, rgba(0,0,0,0) 20%);
+	background: -webkit-linear-gradient(top, rgba(211,211,211,0.65) 0%,rgba(0,0,0,0) 20%);
+	background: linear-gradient(to bottom, rgba(211,211,211,0.65) 0%,rgba(0,0,0,0) 20%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6d3d3d3', endColorstr='#00000000',GradientType=0 );
+}
+.default-content {
+	min-height: 30em;
+}
+.pagecontact {
+	.site-main {
+		padding-top: 5%;
+		padding-bottom: 5%;
+	}
+	.entry-header {
+		margin-bottom: 45px;
+	}
+	.entry-header h1 {
+		margin: 0 0;
+		font-size: 25px;
+		font-weight: 600;
+		line-height: 1.3;
+		color: $red;
+		text-transform: uppercase;
+		text-align: center;
+	}
+}
+.locations-section  {
+	ul {
+		margin: 0 0;
+		padding: 0 0;
+		list-style: none;
+	}
+	.locationList {
+		margin-bottom: 10px;
+	}
+	address {
+		font-style: normal;
+		font-weight: normal;
+		line-height: 1.3;
+		margin: 0 0;
+		padding: 0 0;
+	}
+	.name {
+		margin: 0 0 10px;
+		font-size: 17px;
+		font-weight: 600;
+		line-height: 1.3;
+	}
+	.phone a {
+		text-decoration: none;
+		color: $color__text-main;
+		&:hover {
+			color: $color__text-main;
+		}
+	}
+	li.info {
+		cursor: pointer;
+		padding-right: 0;
+		transition: all ease-out .3s;
+		margin-bottom: 5px;
+		position: relative;
+		@include tab {
+			padding-right: 20px;
+		}
+		&:before {
+			content:"";
+			display: block;
+			width: 5px;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			transition: all ease-out .3s;
+			background: transparent;
+			z-index: 10;
+		}
+		.inside {
+			transition: all ease-out .3s;
+			background: #eeeded;
+			padding: 15px;
+			position: relative;
+		}
+		&:hover {
+			.inside {
+				/* background: #eeeded; */
+				background: $red;
+				color: #FFF;
+			}
+		}
+		&.active,
+		&.active:hover {
+			background: #FFF;
+			opacity: 1;
+			&:before {
+				background: #8a8584;
+			}
+			.inside {
+				background: $red;
+				color: #FFF;
+				margin-right: -10px;
+				margin-left: 10px;
+			}
+			.phone a {
+				color: #FFF;
+			}
+		}
+	}	
+}
+.leftcol {
+	width: 100%;
+	float: left;
+	margin-bottom: 30px;
+	@include tab {
+		width: 28%;
+		float: left;
+	}
+}
+.rightcol {
+	width: 100%;
+	float: left;
+	@include tab {
+		width: 70%;
+		float: right;
+	}
+	@include mid {
+		width: 66%;
+	}
+	.mapcontainer {
+		margin-bottom: 30px;
+	}
+	.mapimage {
+		position: relative;
+		max-width: 700px;
+		width: 100%;
+	}
+	img {
+		width: 100%;
+		height: auto;
+		float: left;
+		position: relative;
+		transition: all ease-out .3s;
+	}
+	.basemap.invisible {
+		visibility: hidden;
+		opacity: 0;
+		z-index: -2;
+	}
+	.maphover {
+		position: absolute;
+		top: 0;
+		left: 0;
+		visibility: hidden;
+		opacity: 0;
+		&.active {
+			visibility: visible;
+			opacity: 1;
+		}
+	}
+}
+.contact-social-links {
+	margin-top: 15px;
+	.stitle {
+		font-size: 18px;
+		font-weight: 600;
+		line-height: 1.2;
+		text-transform: uppercase;
+		margin: 0 0 8px;
+	}
+	a {
+		text-decoration: none;
+		color: $red;
+		font-weight: bold;
+	}
+	.email-info,.social-info {
+		text-align: center;
+		@include tab {
+			text-align: left;
+		}
+	}
+
+	.email-info {
+		margin-bottom: 40px;
+	}
+	.social-info a {
+		display: inline-block;
+		font-size: 28px;
+		margin-left: 5px;
+		margin-right: 5px;
+		@include tab {
+			margin-left: 0;
+			margin-right: 12px;
+		}
+		&:hover {
+			color: #8a8584;
+		}
+	}
+}
+#themaps {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 30;
 }
