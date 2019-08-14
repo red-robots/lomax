@@ -431,6 +431,16 @@
 	}
 }
 
+.entry-title {
+	margin: 0 0;
+	font-size: 25px;
+	font-weight: 600;
+	line-height: 1.3;
+	color: $red;
+	text-transform: uppercase;
+	text-align: center;
+}
+
 .partners-section {
 	@include flexbox();
 	@include flexbox-wrap(wrap);
@@ -496,15 +506,6 @@ body.subpage .site-content {
 			height: auto;
 			float: left;
 		}
-	}
-	.entry-title {
-		margin: 0 0;
-		font-size: 25px;
-		font-weight: 600;
-		line-height: 1.3;
-		color: $red;
-		text-transform: uppercase;
-		text-align: center;
 	}
 }
 .site-main {
@@ -769,3 +770,146 @@ ul.linklist {
 		line-height: 1.3;
 	}
 }
+
+.portfolio-wrapper {
+	margin: 40px 0;
+	.flexrow {
+		@include flexbox();
+		@include flexbox-wrap(wrap);
+		@include flexbox-direction(row);
+		width: 100%;
+		float: left;
+	}
+	.block {
+		padding: 5px;
+		@include tab {
+			width: 50%;
+		}
+		@include mid {
+			width: 25%;
+		}
+		img {
+			width: 100%;
+			height: auto;
+			float: left;
+		}
+	}
+	.titlewrap {
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(208, 21, 0, 0.85);
+		text-align: center;
+		@include flexbox();
+		@include flexbox-align-items(center);
+		@include flexbox-justify(center);
+		transition: all ease-out .3s;
+		opacity: 0;
+		visibility: hidden;
+		.title {
+			color: #FFF;
+			text-transform: uppercase;
+			font-size: 20px;
+			font-weight: 600;
+			line-height: 1.1;
+			padding: 20px;
+			transition: all ease-out .3s;
+			margin-top: 10px;
+		}
+	}
+	.inside {
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		display: block;
+		width: 100%;
+		text-decoration: none;
+		position: relative;
+		&:hover {
+			.titlewrap {
+				opacity: 1;
+				visibility: visible;
+			}
+			.title {
+				margin-top: 0;
+			}
+		}
+	}
+}
+
+.singleportfolio {
+	.entry-header {
+		position: relative;
+		h1 {
+			display: inline-block;
+			max-width: 800px;
+			width: 100%;
+			margin: 0 auto;
+		}
+		.allbtn {
+			display: inline-block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			text-decoration: none;
+			color: #898483;
+			font-size: 14px;
+			text-transform: uppercase;
+			padding-left: 32px;
+			&:hover {
+				color: $red;
+			}
+			span {
+				display: block;
+				width: 26px;
+				height: 26px;
+				position: absolute;
+				top: -3px;
+				left: 0;
+				&:before,&:after {
+					content:"";
+					display: block;
+					width: 12px;
+					height: 12px;
+					background: $red;
+					position: absolute;
+					top: 0;
+				}
+				&:before {
+					left: 0;
+				}
+				&:after {
+					right: 0;
+				}
+				i {
+					display: block;
+					width: 100%;
+					height: 100%;
+					position: absolute;
+					top: 0;
+					left: 0;
+					&:before,&:after {
+						content:"";
+						display: block;
+						width: 12px;
+						height: 12px;
+						background: $red;
+						position: absolute;
+						bottom: 0;
+					}
+					&:before {
+						left: 0;
+					}
+					&:after {
+						right: 0;
+					}
+				}
+			}
+		}
+	}
+}
+
+
