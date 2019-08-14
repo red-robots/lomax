@@ -58,9 +58,22 @@ get_header(); ?>
 	<?php if ( $partners = get_field('partners','option') ) { ?>
 	<div class="partners-section wrapper">
 		<div class="partners-section">
-			<?php foreach ($partners as $p) { ?>
+			<?php foreach ($partners as $p) { 
+			$attID = $p['ID'];
+			$website = get_field("url",$attID);  
+			$target = '';
+			if($website!='#'){
+				$target = ' target="_blank"';
+			}
+			$before_link = '';
+			$after_link = '';
+			if($website) {
+				$before_link = '<a href="'.$website.'"'.$target.'>';
+				$after_link = '</a>';
+			}
+			?>
 			<div class="partner">
-				<img src="<?php echo $p['url']; ?>" alt="<?php echo $p['title']; ?>">
+				<?php echo $before_link; ?><img src="<?php echo $p['url']; ?>" alt="<?php echo $p['title']; ?>"><?php echo $after_link; ?>
 			</div>	
 			<?php } ?>
 		</div>	

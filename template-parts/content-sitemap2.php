@@ -1,5 +1,5 @@
 <?php
-$menus = array('Main');
+$menus = array('Main Menu Left','Main Menu Right','Top Menu');
 $sitemap = generate_sitemap($menus);
 
 // 'ID'=>$postId,

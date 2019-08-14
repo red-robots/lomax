@@ -4,7 +4,7 @@
  */
 
 get_header(); ?>
-<div id="primary" class="full-content-area clear default-content pagecontact">
+<div id="primary" class="full-content-area clear pagecontact">
 	<main id="main" class="site-main wrapper clear" role="main">
 		<?php while ( have_posts() ) : the_post(); ?>
 			<header class="entry-header">
