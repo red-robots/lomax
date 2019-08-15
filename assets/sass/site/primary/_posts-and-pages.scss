@@ -482,9 +482,9 @@ body.subpage .site-content {
 }
 .default-content {
 	min-height: 30em;
-	padding-top: 50px;
+	padding-top: 55px;
 	padding-bottom: 50px;
-	@include tab {
+	@include mid {
 		padding-top: 3%;
 		padding-bottom: 3%;
 	}
@@ -777,11 +777,13 @@ ul.linklist {
 		@include flexbox();
 		@include flexbox-wrap(wrap);
 		@include flexbox-direction(row);
+		@include flexbox-justify(center);
 		width: 100%;
 		float: left;
 	}
 	.block {
 		padding: 5px;
+		width: 100%;
 		@include tab {
 			width: 50%;
 		}
@@ -792,6 +794,17 @@ ul.linklist {
 			width: 100%;
 			height: auto;
 			float: left;
+		}
+	}
+	&.columns3 {
+		.block {
+			width: 100%;
+			@include tab {
+				width: 50%;
+			}
+			@include mid {
+				width: 33.3%;
+			}
 		}
 	}
 	.titlewrap {
@@ -841,25 +854,96 @@ ul.linklist {
 }
 
 .singleportfolio {
+	.wrapper {
+		position: relative;
+	}
 	.entry-header {
 		position: relative;
-		h1 {
-			display: inline-block;
-			max-width: 800px;
-			width: 100%;
-			margin: 0 auto;
+		.titlewrap {
+			width: 96%;
+			position: relative;
+			margin: 35px auto 10px;
+			@include xs {
+				width: 60%;
+			}
+			@include mid {
+				max-width: 500px;
+			}
+			@include desk {
+				margin: 0 auto 10px;
+			}
 		}
-		.allbtn {
-			display: inline-block;
+		h1 {
+			line-height: 1.1;
+		}
+		.next-prev-post {
 			position: absolute;
 			top: 0;
 			left: 0;
-			text-decoration: none;
-			color: #898483;
-			font-size: 14px;
-			text-transform: uppercase;
-			padding-left: 32px;
-			&:hover {
+			width: 100%;
+			z-index: 10;
+			a {
+				font-size: 16px;
+				color: #FFF;
+				display: block;
+				width: 22px;
+				height: 22px;
+				background: #7d7d7d;
+				position: absolute;
+				top: 5px;
+				text-align: center;
+				span {
+					position: relative;
+				}
+				&:hover {
+					background: $red;
+				}
+			}
+			a.prev {
+				left: 0;
+				span {
+					left: -1px;
+					top: -1px;
+				}
+			}
+			a.next {
+				right: 0;
+				span {
+					left: 1px;
+					top: -1px;
+				}
+			}
+		}
+		h1 {
+			display: block;
+			width: 100%;
+			position: relative;
+			padding: 0 50px;
+		}
+		.allbtn {
+			display: block;
+			position: absolute;
+			top: -55px;
+			left: 0;
+			z-index: 5;
+			width: 100%;
+			text-align: center;
+			@include mid {
+				width: auto;
+				display: inline-block;
+				left: 20px;
+				top: 6px;
+			}
+			a {
+				text-decoration: none;
+				text-transform: uppercase;
+				display: inline-block;
+				color: #898483;
+				font-size: 14px;
+				padding-left: 33px;
+				position: relative;
+			}
+			a:hover {
 				color: $red;
 			}
 			span {
@@ -908,6 +992,197 @@ ul.linklist {
 					}
 				}
 			}
+		}
+	}
+}
+
+.project-info {
+	text-align: center;
+	margin-bottom: 20px;
+	margin-top: 10px;
+	span {
+		display: inline-block;
+		position: relative;
+	}
+	.wrapper span {
+		border-left: 1px solid #8a8584;
+		padding: 0 10px 0 11px;
+		line-height: 1.2;
+		color: #8a8584;
+		font-size: 15px;
+	}
+	.wrapper span:first-child {
+		border-left: 0;
+		padding-left: 0;
+	}
+}
+.pagination {
+	width: 100%;
+	float: left;
+	margin-top: 30px;
+	text-align: center;
+	span, a {
+		display: inline-block;
+		text-decoration: none;
+		padding: 6px 8px;
+		border: 1px solid $red;
+		font-size: 15px;
+		line-height: 1;
+		color: $red;
+		margin: 0 2px;
+		overflow: hidden;
+	}
+	span {
+		color: #FFF;
+		background: $red;
+	}
+	a {
+		&:hover {
+			color: #FFF;
+			background: #ec9187;
+		}
+	}
+}
+
+.project-sliders {
+	width: 100%;
+	float: left;
+	position: relative;
+	overflow: hidden;
+	ul {
+		margin: 0 0!important;
+		padding: 0 0!important;
+		list-style: none;
+		position: relative;
+		width: 100%;
+		float: left;
+	}
+	ul.sliders,
+	ul.sliders li {
+		height: 100%;
+	}
+	li {
+		padding: 0 0!important;
+		position: relative;
+	}
+	li:before {
+		display: none!important;
+	}
+	ul.sliders li.slide {
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-color: #CCC;
+	}
+	span.span-image {
+		display: block;
+		width: 100%;
+		float: left;
+	}
+	img.ssimage {
+		width: 100%;
+		height: auto;
+		float: left;
+	}
+	.imagetitle {
+		display: none;
+		width: 100%;
+		position: absolute;
+		bottom: 20px;
+		left: 0;
+		padding: 5px 20px;
+		font-size: 20px;
+		span {
+			display: inline-block;
+			color: $red;
+			background: rgba(255,255,255,.8);
+			padding: 3px 12px;
+		}
+	}
+	.flex-control-nav {
+		bottom: 25px;
+		z-index: 100;
+	}
+	.flex-control-nav li {
+		margin:0 3px;
+	}
+	.flex-control-paging li a {
+		display: inline-block;
+		border-radius: 0px;
+		width: 12px;
+		height: 12px;
+		border: 1px solid #FFF;
+		background: rgba(255,255,255,.1);
+		box-shadow: none;
+	}
+	.flex-control-paging li a.flex-active {
+		background: rgba(255,255,255,1);
+	}
+	.flex-direction-nav {
+		position: absolute;
+		width: 100%;
+		top: 43%;
+		left: 0;
+		z-index: 100;
+	}
+	.flex-direction-nav a {
+		display: block;
+		width: 60px;
+		height: 60px;
+		font-size: 0px;
+		color: transparent;
+		top: 0;
+		transform: scale(0.5);
+		@include tab {
+			transform: none;
+		}
+		&:before, &:after {
+			content:"";
+			display: block;
+			width: 65%;
+			height: 2px;
+			background: #FFF;
+			position: absolute;
+		}
+	}
+
+	.flex-direction-nav .flex-prev {
+		left: -50;
+		&:before, &:after {
+			left: 8px;
+		}
+		&:before {
+			top: 17px;
+			transform: rotate(-45deg);
+		}
+		&:after {
+			top: 44px;
+			transform: rotate(45deg);
+		}
+	}
+	.flex-direction-nav .flex-next {
+		right: -50;
+		&:before, &:after {
+			right: 8px;
+		}
+		&:before {
+			top: 17px;
+			transform: rotate(45deg);
+		}
+		&:after {
+			top: 44px;
+			transform: rotate(-45deg);
+		}
+	}
+	&:hover {
+		.flex-direction-nav li a {
+			opacity: 1;
+		}
+		.flex-direction-nav .flex-prev {
+			left: 0;
+		}
+		.flex-direction-nav .flex-next {
+			right: 0;
 		}
 	}
 }

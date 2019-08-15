@@ -16,14 +16,28 @@ get_header(); ?>
 
 			<?php  
 			$posts_per_page = 12;
+			$paged = ( get_query_var( 'pg' ) ) ? absint( get_query_var( 'pg' ) ) : 1;
+			$args1 = array(
+				'posts_per_page'=> -1,
+				'post_type'		=> 'portfolio',
+				'post_status'	=> 'publish',
+			);
+			$projs = get_posts($args1);
+			$total = ($projs) ? count($projs) : 0;
+			$columnClass = 'columns4';
+			if($total==6 || $total==3) {
+				$columnClass = 'columns3';
+			}
+
 			$args = array(
 				'posts_per_page'=> $posts_per_page,
 				'post_type'		=> 'portfolio',
-				'post_status'	=> 'publish'
+				'post_status'	=> 'publish',
+				'paged'         => $paged
 			);
 			$projects = new WP_Query($args);
 			if ( $projects->have_posts() ) {  ?>
-			<section class="portfolio-wrapper clear">
+			<section class="portfolio-wrapper clear <?php echo $columnClass ?>">
 				<div class="flexrow">
 				<?php while ( $projects->have_posts() ) : $projects->the_post(); 
 					$post_id = get_the_ID();
@@ -43,6 +57,29 @@ get_header(); ?>
 					</div>
 				<?php endwhile; wp_reset_postdata(); ?>
 				</div>
+
+				<?php
+			    $total_pages = $projects->max_num_pages;
+			    if ($total_pages > 1){ ?>
+
+			        <div id="pagination" class="pagination wrapper">
+			            <?php
+			                $pagination = array(
+			                    'base' => @add_query_arg('pg','%#%'),
+			                    'format' => '?paged=%#%',
+			                    'mid-size' => 1,
+			                    'current' => $paged,
+			                    'total' => $total_pages,
+			                    'prev_next' => True,
+			                    'prev_text' => __( '&lt;' ),
+			                    'next_text' => __( '&gt;' )
+			                );
+			                echo paginate_links($pagination);
+			            ?>
+			        </div>
+			        <?php
+			    } ?>
+
 			</section>
 			<?php } ?>
 		</main><!-- #main -->

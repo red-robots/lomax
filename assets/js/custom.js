@@ -30,6 +30,11 @@ jQuery(document).ready(function ($) {
 	$('.flexslider').flexslider({
 		animation: "slide",
 	}); // end register flexslider
+
+	$('.project-sliders').flexslider({
+		animation: "fade",
+		selector: ".sliders > li",
+	});
 	
 	/*
 	*
