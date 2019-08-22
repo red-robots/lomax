@@ -463,12 +463,19 @@
 			padding: 10px 25px;
 		}
 		img {
+			-webkit-filter: grayscale(100%); 
+			filter: grayscale(100%);
 			width: 100%;
 			height: auto;
+			transition: all ease .3s;
 			@include desk {
 				width: auto;
 				height: 90px;
 			}
+		}
+		a:hover img {
+			-webkit-filter: grayscale(0); 
+			filter: grayscale(0);
 		}
 	}
 		
@@ -481,9 +488,14 @@ body.subpage .site-content {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6d3d3d3', endColorstr='#00000000',GradientType=0 );
 }
 .default-content {
-	min-height: 30em;
 	padding-top: 55px;
 	padding-bottom: 50px;
+	#main {
+		min-height: 30em;
+		@include mid {
+			min-height: 40em;
+		}
+	}
 	@include mid {
 		padding-top: 3%;
 		padding-bottom: 3%;
@@ -583,8 +595,9 @@ body.subpage .site-content {
 		transition: all ease-out .3s;
 		margin-bottom: 5px;
 		position: relative;
+		padding-left: 0!important;
 		@include tab {
-			padding-right: 20px;
+			padding-right: 15px;
 		}
 		&:before {
 			content:"";
@@ -597,6 +610,7 @@ body.subpage .site-content {
 			transition: all ease-out .3s;
 			background: transparent;
 			z-index: 10;
+			border-radius: 0px!important;
 		}
 		.inside {
 			transition: all ease-out .3s;
@@ -622,7 +636,7 @@ body.subpage .site-content {
 				background: $red;
 				color: #FFF;
 				margin-right: -10px;
-				margin-left: 10px;
+				margin-left: 11px;
 			}
 			.phone a {
 				color: #FFF;
@@ -635,7 +649,7 @@ body.subpage .site-content {
 	float: left;
 	margin-bottom: 30px;
 	@include tab {
-		width: 28%;
+		width: 33%;
 		float: left;
 	}
 }
@@ -647,7 +661,7 @@ body.subpage .site-content {
 		float: right;
 	}
 	@include mid {
-		width: 66%;
+		width: 65%;
 	}
 	.mapcontainer {
 		margin-bottom: 30px;

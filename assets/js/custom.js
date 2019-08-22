@@ -8,6 +8,7 @@
 jQuery(document).ready(function ($) {
 	
 	$('.tooltip').tooltipster();
+	$('map').imageMapResize();
 
 	/*
 	*
@@ -19,7 +20,6 @@ jQuery(document).ready(function ($) {
 	$all_oembed_videos.each(function() {
 	
 		$(this).removeAttr('height').removeAttr('width').wrap( "<div class='embed-container'></div>" );
- 	
  	});
 	
 	/*
@@ -134,37 +134,46 @@ jQuery(document).ready(function ($) {
 	} 
 
 	/* MAPS  */
-	// $(".mapinfo").hover(
-	// 	function(){
-	// 		$(".basemap").addClass('invisible');
-	// 		var mapId = $(this).attr('data-map');
-	// 		if( $(mapId).length ) {
-	// 			$(mapId).addClass('active');
-	// 		}
-	// 	}, function() {
-	// 		$(".basemap").removeClass('invisible');
-	// 		var mapId = $(this).attr('data-map');
-	// 		if( $(mapId).length ) {
-	// 			$(mapId).removeClass('active');
-	// 		}
-	// 	}
-	// );
-
-	$(document).on("click",".mapinfo", function(){
-		var baseMap = $(".basemap");
-		var useMap = baseMap.attr('data-default');
-		baseMap.addClass('invisible');
-		baseMap.attr('usemap','');
-		$(".mapinfo").removeClass('active');
-		$(this).addClass('active');
-		var mapId = $(this).attr('data-map');
-		if( $(mapId).length ) {
-			$(".maphover").removeClass('active');
-			$(".maphover").attr('usemap',''); 
-			$(mapId).addClass('active');
-			$(mapId).attr('usemap',useMap);
+	var usemap = $('img.basemap').attr('data-default');
+	$(".mapinfo").hover(
+		function(){
+			$(".basemap").addClass('invisible');
+			$(this).addClass('active');
+			var mapId = $(this).attr('data-map');
+			if( $(mapId).length ) {
+				$(mapId).addClass('active');
+				$(mapId).attr('usemap',usemap);
+				$('img.basemap').attr('usemap','');
+				$('area[data-mapid="'+mapId+'"]').tooltipster('open');
+			}
+		}, function() {
+			$(this).removeClass('active');
+			$(".basemap").removeClass('invisible');
+			var mapId = $(this).attr('data-map');
+			if( $(mapId).length ) {
+				$(mapId).removeClass('active');
+				$(mapId).attr('usemap','');
+				$('img.basemap').attr('usemap',usemap);
+				$('area[data-mapid="'+mapId+'"]').tooltipster('close');
+			}
 		}
-	});
+	);
+
+	// $(document).on("click",".mapinfo", function(){
+	// 	var baseMap = $(".basemap");
+	// 	var useMap = baseMap.attr('data-default');
+	// 	baseMap.addClass('invisible');
+	// 	baseMap.attr('usemap','');
+	// 	$(".mapinfo").removeClass('active');
+	// 	$(this).addClass('active');
+	// 	var mapId = $(this).attr('data-map');
+	// 	if( $(mapId).length ) {
+	// 		$(".maphover").removeClass('active');
+	// 		$(".maphover").attr('usemap',''); 
+	// 		$(mapId).addClass('active');
+	// 		$(mapId).attr('usemap',useMap);
+	// 	}
+	// });
 
 	/* Clicking Map Area */
 	$('#themaps area').each(function(){
@@ -174,6 +183,24 @@ jQuery(document).ready(function ($) {
 		$(this).attr('title',mapName);
 		$(this).tooltipster();
 	});
+
+
+	$('#themaps area').hover(
+		function() {
+			var map_id = $(this).attr('data-mapid');
+			$(map_id).addClass('active');
+			$('.mapinfo[data-map="'+map_id+'"]').addClass('active')
+			$("img.basemap").addClass('invisible');
+			$('img.basemap').attr('usemap','');
+			$(map_id).attr('usemap',usemap);
+		}, function(){
+			var map_id = $(this).attr('data-mapid');
+			$('.mapinfo[data-map="'+map_id+'"]').removeClass("active");
+			$('.maphover').removeClass('active').attr('usemap','');
+			$("img.basemap").removeClass('invisible');
+			$('img.basemap').attr('usemap',usemap);
+		}
+	);
 
 	/* Remove Active Location */
 	$(document).on('click', function (e) {

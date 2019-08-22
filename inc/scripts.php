@@ -26,6 +26,13 @@ function acstarter_scripts() {
 		);
 
 	wp_enqueue_script( 
+			'acstarter-mapresizer', 
+			get_template_directory_uri() . '/assets/js/vendors/imageMapResizer.min.js', 
+			array(), '20190101', 
+			true 
+		);
+
+	wp_enqueue_script( 
 			'acstarter-custom', 
 			get_template_directory_uri() . '/assets/js/custom.js', 
 			array(), '20120206', 
