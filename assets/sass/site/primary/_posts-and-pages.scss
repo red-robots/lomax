@@ -802,7 +802,7 @@ ul.linklist {
 			width: 50%;
 		}
 		@include mid {
-			width: 25%;
+			width: 33.3%;
 		}
 		img {
 			width: 100%;
@@ -945,7 +945,7 @@ ul.linklist {
 			@include mid {
 				width: auto;
 				display: inline-block;
-				left: 20px;
+				left: 50px;
 				top: 6px;
 			}
 			a {

@@ -82,6 +82,7 @@ $current_link = get_permalink( get_the_ID() ); ?>
 			$img = wp_get_attachment_image_src($post_thumbnail_id,'medium_large'); 
 			$mainImage = wp_get_attachment_image($post_thumbnail_id,'full','',array('class'=>'ssimage mainpic','alt'=>$altTxt));
 			$square = get_bloginfo('template_url') . '/images/square.png';
+			$rectangle = get_bloginfo('template_url') . '/images/rectangle.png';
 		?>
 
 		<?php if ($galleries) { ?>
@@ -94,7 +95,7 @@ $current_link = get_permalink( get_the_ID() ); ?>
 							?>
 							<li class="slide gallery" style="background-image:url('<?php echo $image_src;?>')">
 								<span class="span-image">
-									<img class="ssimage" src="<?php echo $square?>" alt="" aria-hidden="true" />
+									<img class="ssimage" src="<?php echo $rectangle?>" alt="" aria-hidden="true" />
 									<span class="imagetitle"><span class="span"><?php echo $image_title ?></span></span>
 								</span>
 							</li>
